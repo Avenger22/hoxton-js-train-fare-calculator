@@ -19,151 +19,193 @@ alert("`The distances betwen destinations are as follow : \n KUKES-MILANO 800KM 
 
 const priceConstant = 0.21
 
-//distances betwen places TIRANA
-const distanceTiranaMilano = 900
-const distanceTiranaTorino = 800
-const distanceTiranaMunich = 5000
-//distances betwen places KUKES
-const distanceKukesMilano = 800
-const distanceKukesTorino = 600
-const distanceKukesMunich = 4000
+//DECLARATION OF OBJECTS 
+const distances = {
 
-//VARIABLE DECLARATION
-let destinationPriceTiranaMilano; let destinationPriceTiranaTorino; let destinationPriceTiranaMunich
-let discountPriceTiranaMilanoJunior; let discountPriceTiranaTorinoJunior; let discountPriceTiranaMunichJunior
-let discountPriceTiranaMilanoSenior; let discountPriceTiranaTorinoSenior; let discountPriceTiranaMunichSenior
+    tirana: {
+        milano: 900,
+        torino: 800,
+        munich: 5000
+    },
 
-let destinationPriceKukesMilano; let destinationPriceKukesTorino; let destinationPriceKukesMunich
-let discountPriceKukesMilanoJunior; let discountPriceKukesTorinoJunior; let discountPriceKukesMunichJunior
-let discountPriceKukesMilanoSenior; let discountPriceKukesTorinoSenior; let discountPriceKukesMunichSenior
+    kukes: {
+        milano: 800,
+        torino: 600,
+        munich: 4000
+    }
+
+}
+
+const destinationPrices = {
+    tirana: {
+        milano: 0,
+        torino: 0,
+        munich: 0
+    },
+
+    kukes: {
+        milano: 0,
+        torino: 0,
+        munich: 0
+    }
+}
+
+const discountPricesJunior = {
+    tirana: {
+        milano: 0,
+        torino: 0,
+        munich: 0
+    },
+
+    kukes: {
+        milano: 0,
+        torino: 0,
+        munich: 0
+    }
+}
+
+const discountPricesSenior = {
+    tirana: {
+        milano: 0,
+        torino: 0,
+        munich: 0
+    },
+
+    kukes: {
+        milano: 0,
+        torino: 0,
+        munich: 0
+    }
+}
 
 //Conditionals to find price based on user input
 if(userStartingPoint === "TIRANA" && userDestinationPoint === "MILANO") {
-    destinationPriceTiranaMilano = priceConstant * distanceTiranaMilano
-    discountPriceTiranaMilanoJunior = destinationPriceTiranaMilano - (0.20 * destinationPriceTiranaMilano)
-    discountPriceTiranaMilanoSenior = destinationPriceTiranaMilano - (0.40 * destinationPriceTiranaMilano)
+    destinationPrices.tirana.milano = priceConstant * distances.tirana.milano
+    discountPricesJunior.tirana.milano = destinationPrices.tirana.milano - (0.20 * destinationPrices.tirana.milano)
+    discountPricesSenior.tirana.milano = destinationPrices.tirana.milano - (0.40 * destinationPrices.tirana.milano)
 }
 
 else if (userStartingPoint === "TIRANA" && userDestinationPoint === "TORINO") {
-    destinationPriceTiranaTorino = priceConstant * distanceTiranaTorino
-    discountPriceTiranaTorinoJunior = destinationPriceTiranaTorino - (0.20 * destinationPriceTiranaTorino)
-    discountPriceTiranaTorinoSenior = destinationPriceTiranaTorino - (0.40 * destinationPriceTiranaTorino)
+    destinationPrices.tirana.torino = priceConstant * distances.tirana.torino
+    discountPricesJunior.tirana.torino = destinationPrices.tirana.torino - (0.20 * destinationPrices.tirana.torino)
+    discountPricesSenior.tirana.torino  = destinationPrices.tirana.torino - (0.40 * destinationPrices.tirana.torino)
 }
 
 else if (userStartingPoint === "TIRANA" && userDestinationPoint === "MUNICH") {
-    destinationPriceTiranaMunich = priceConstant * distanceTiranaMunich
-    discountPriceTiranaMunichJunior = destinationPriceTiranaMunich - (0.20 * destinationPriceTiranaMunich)
-    discountPriceTiranaMunichSenior = destinationPriceTiranaMunich - (0.40 * destinationPriceTiranaMunich)
+    destinationPrices.tirana.munich = priceConstant * distances.tirana.munich
+    discountPricesJunior.tirana.munich = destinationPrices.tirana.munich - (0.20 * destinationPrices.tirana.munich)
+    discountPricesSenior.tirana.munich  = destinationPrices.tirana.munich - (0.40 * destinationPrices.tirana.munich)
 }
 
 else if (userStartingPoint === "KUKES" && userDestinationPoint === "MILANO") {
-    destinationPriceKukesMilano = priceConstant * distanceKukesMilano
-    discountPriceKukesMilanoJunior = destinationPriceKukesMilano - (0.20 * destinationPriceKukesMilano)
-    discountPriceKukesMilanoSenior = destinationPriceKukesMilano - (0.40 * destinationPriceKukesMilano)
+    destinationPrices.kukes.milano = priceConstant * distances.kukes.milano
+    discountPricesJunior.kukes.milano = destinationPrices.kukes.milano - (0.20 * destinationPrices.kukes.milano)
+    discountPricesSenior.kukes.milano = destinationPrices.kukes.milano - (0.40 * destinationPrices.kukes.milano)
 }
 
-else if (userStartingPoint === "TIRANA" && userDestinationPoint === "TORINO") {
-    destinationPriceKukesTorino = priceConstant * distanceKukesTorino
-    discountPriceKukesTorinoJunior = destinationPriceKukesTorino - (0.20 * destinationPriceKukesTorino)
-    discountPriceKukesTorinoSenior = destinationPriceKukesTorino - (0.40 * destinationPriceKukesTorino)
+else if (userStartingPoint === "KUKES" && userDestinationPoint === "TORINO") {
+    destinationPrices.kukes.torino = priceConstant * distances.kukes.torino
+    discountPricesJunior.kukes.torino = destinationPrices.kukes.torino - (0.20 * destinationPrices.kukes.torino)
+    discountPricesSenior.kukes.torino = destinationPrices.kukes.torino - (0.40 * destinationPrices.kukes.torino)
 }
 
-else if (userStartingPoint === "TIRANA" && userDestinationPoint === "MUNICH") {
-    destinationPriceKukesMunich = priceConstant * distanceKukesMunich
-    discountPriceKukesMunichJunior = destinationPriceKukesMunich - (0.20 * destinationPriceKukesMunich)
-    discountPriceKukesMunichSenior = destinationPriceKukesMunich - (0.40 * destinationPriceKukesMunich)
+else if (userStartingPoint === "KUKES" && userDestinationPoint === "MUNICH") {
+    destinationPrices.kukes.munich = priceConstant * distances.kukes.munich
+    discountPricesJunior.kukes.munich = destinationPrices.kukes.munich - (0.20 * destinationPrices.kukes.munich)
+    discountPricesSenior.kukes.munich = destinationPrices.kukes.munich - (0.40 * destinationPrices.kukes.munich)
 }
 
-//Here the evauluation of the data
+
+//Here the evauluation of the data PART 1 BIG CONDITIONALS
 if ( userAge  < 18 && (userStartingPoint === "TIRANA" && userDestinationPoint === "MILANO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMilano} with 20% discount wich is: ${discountPriceTiranaMilanoJunior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMilano} with 20% discount wich is: ${discountPriceTiranaMilanoJunior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.tirana.milano} with 20% discount wich is: ${discountPricesJunior.tirana.milano.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.tirana.milano} with 20% discount wich is: ${discountPricesJunior.tirana.milano.toFixed(1)}$`)
 }
 
 else if ( userAge  < 18 && (userStartingPoint === "TIRANA" && userDestinationPoint === "TORINO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaTorino} with 20% discount wich is: ${discountPriceTiranaTorinoJunior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaTorino} with 20% discount wich is: ${discountPriceTiranaTorinoJunior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.tirana.torino} with 20% discount wich is: ${discountPricesJunior.tirana.torino.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.tirana.torino} with 20% discount wich is: ${discountPricesJunior.tirana.torino.toFixed(1)}$`)
 }
 
 else if ( userAge  < 18 && (userStartingPoint === "TIRANA" && userDestinationPoint === "MUNICH") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMunich} with 20% discount wich is: ${discountPriceTiranaMunichJunior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMunich} with 20% discount wich is: ${discountPriceTiranaMunichJunior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.tirana.munich} with 20% discount wich is: ${discountPricesJunior.tirana.munich.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.tirana.munich} with 20% discount wich is: ${discountPricesJunior.tirana.munich.toFixed(1)}$`)
 }
 
 else if (userAge  < 18 && (userStartingPoint === "KUKES" && userDestinationPoint === "MILANO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 20% discount wich is: ${discountPriceKukesMilanoJunior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 20% discount wich is: ${discountPriceKukesMilanoJunior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 20% discount wich is: ${discountPricesJunior.kukes.milano.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 20% discount wich is: ${discountPricesJunior.kukes.milano.toFixed(1)}$`)
 }
 
 else if (userAge  < 18 && (userStartingPoint === "KUKES" && userDestinationPoint === "TORINO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesTorino} with 20% discount wich is: ${discountPriceKukesTorinoJunior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesTorino} with 20% discount wich is: ${discountPriceKukesTorinoJunior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.kukes.torino} with 20% discount wich is: ${discountPricesJunior.kukes.torino.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.kukes.torino}} with 20% discount wich is: ${discountPricesJunior.kukes.torino.toFixed(1)}$`)
 }
 
 else if (userAge  < 18 && (userStartingPoint === "KUKES" && userDestinationPoint === "MUNICH") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMunich} with 20% discount wich is: ${discountPriceKukesMunichJunior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMunich} with 20% discount wich is: ${discountPriceKukesMunichJunior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.kukes.munich} with 20% discount wich is: ${discountPricesJunior.kukes.munich.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distances.kukes.munich} with 20% discount wich is: ${discountPricesJunior.kukes.munich.toFixed(1)}$`)
 }
 
 //PART 2 OF BIG CONDITIONALS
 else if (userAge  > 65 && (userStartingPoint === "TIRANA" && userDestinationPoint === "MILANO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMilano} with 40% discount wich is: ${discountPriceTiranaMilanoSenior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMilano} with 40% discount wich is: ${discountPriceTiranaMilanoSenior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.milano} with 40% discount wich is: ${discountPricesSenior.tirana.milano.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.milano} with 40% discount wich is: ${discountPricesSenior.tirana.milano.toFixed(1)}$`)
 }
 
 else if (userAge  > 65 && (userStartingPoint === "TIRANA" && userDestinationPoint === "TORINO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaTorino} with 40% discount wich is: ${discountPriceTiranaTorinoSenior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaTorino} with 40% discount wich is: ${discountPriceTiranaTorinoSenior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.torino} with 40% discount wich is: ${discountPricesSenior.tirana.torino.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.torino} with 40% discount wich is: ${discountPricesSenior.tirana.torino.toFixed(1)}$`)
 }
 
 else if (userAge  > 65 && (userStartingPoint === "TIRANA" && userDestinationPoint === "MUNICH") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMunich} with 40% discount wich is: ${discountPriceTiranaMunichSenior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMunich} with 40% discount wich is: ${discountPriceTiranaMunichSenior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.munich} with 40% discount wich is: ${discountPricesSenior.tirana.munich.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.munich} with 40% discount wich is: ${discountPricesSenior.tirana.munich.toFixed(1)}$`)
 }
 // KUKES CONDITIONALS FOR SENIOR DISCOUNT
 else if (userAge  > 65 && (userStartingPoint === "KUKES" && userDestinationPoint === "MILANO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 40% discount wich is: ${discountPriceKukesMilanoSenior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 40% discount wich is: ${discountPriceKukesMilanoSenior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.milano} with 40% discount wich is: ${discountPricesSenior.kukes.milano.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.milano} with 40% discount wich is: ${discountPricesSenior.kukes.milano.toFixed(1)}$`)
 }
 
 else if (userAge  > 65 && (userStartingPoint === "KUKES" && userDestinationPoint === "TORINO") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesTorino} with 40% discount wich is: ${discountPriceKukesTorinoSenior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesTorino} with 40% discount wich is: ${discountPriceKukesTorinoSenior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.torino} with 40% discount wich is: ${discountPricesSenior.kukes.torino.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.torino} with 40% discount wich is: ${discountPricesSenior.kukes.torino.toFixed(1)}$`)
 }
 
 else if (userAge  > 65 && (userStartingPoint === "KUKES" && userDestinationPoint === "MUNICH") ) { //Junior get 20% discount
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMunich} with 40% discount wich is: ${discountPriceTiranaMunichSenior.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMunich} with 40% discount wich is: ${discountPriceTiranaMunichSenior.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.munich} with 40% discount wich is: ${discountPricesSenior.kukes.munich.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.munich} with 40% discount wich is: ${discountPricesSenior.kukes.munich.toFixed(1)}$`)
 }
 
 //PART 3 OF BIG CONDITIONALS to check both tirana and kukes for no discount price
 else if ((userAge  >= 18 && userAge <=65) && (userStartingPoint === "TIRANA" && userDestinationPoint === "MILANO") ) { 
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMilano} with 0% discount wich is: ${destinationPriceTiranaMilano.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMilano} with 0% discount wich is: ${destinationPriceTiranaMilano.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.milano} with 0% discount wich is: ${destinationPrices.tirana.milano.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.milano} with 0% discount wich is: ${destinationPrices.tirana.milano.toFixed(1)}$`)
 }
 
 else if ((userAge  >= 18 && userAge <=65) && (userStartingPoint === "TIRANA" && userDestinationPoint === "TORINO") ) { 
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaTorino} with 0% discount wich is: ${destinationPriceTiranaTorino.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaTorino} with 0% discount wich is: ${destinationPriceTiranaTorino.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.torino} with 0% discount wich is: ${destinationPrices.tirana.torino.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.torino} with 0% discount wich is: ${destinationPrices.tirana.torino.toFixed(1)}$`)
 }
 
 else if ((userAge  >= 18 && userAge <=65) && (userStartingPoint === "TIRANA" && userDestinationPoint === "MUNICH") ) { 
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMunich} with 0% discount wich is: ${destinationPriceTiranaMunich.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceTiranaMunich} with 0% discount wich is: ${destinationPriceTiranaMunich.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.munich} with 0% discount wich is: ${destinationPrices.tirana.munich.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.tirana.munich} with 0% discount wich is: ${destinationPrices.tirana.munich.toFixed(1)}$`)
 }
 
 //HERE WE CHECK FOR KUKES NO DISCOUNT
 else if ((userAge  >= 18 && userAge <=65) && (userStartingPoint === "KUKES" && userDestinationPoint === "MILANO") ) { 
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 0% discount wich is: ${destinationPriceKukesMilano.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMilano} with 0% discount wich is: ${destinationPriceKukesMilano.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.milano} with 0% discount wich is: ${destinationPrices.kukes.milano.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.milano} with 0% discount wich is: ${destinationPrices.kukes.milano.toFixed(1)}$`)
 }
 
 else if ((userAge  >= 18 && userAge <=65) && (userStartingPoint === "KUKES" && userDestinationPoint === "TORINO") ) { 
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesTorino} with 0% discount wich is: ${destinationPriceKukesTorino.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesTorino} with 0% discount wich is: ${destinationPriceKukesTorino.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.torino} with 0% discount wich is: ${destinationPriceKukesTorino.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.torino} with 0% discount wich is: ${destinationPriceKukesTorino.toFixed(1)}$`)
 }
 
 else if ((userAge  >= 18 && userAge <=65) && (userStartingPoint === "KUKES" && userDestinationPoint === "MUNICH") ) { 
-    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMunich} with 0% discount wich is: ${destinationPriceTiranaMunich.toFixed(1)}$`)
-    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${distanceKukesMunich} with 0% discount wich is: ${destinationPriceTiranaMunich.toFixed(1)}$`)
+    console.log(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.munich} with 0% discount wich is: ${destinationPrices.kukes.munich.toFixed(1)}$`)
+    alert(`User: ${userName} is of age: ${userAge} and will travel km: ${destinationPrices.kukes.munich} with 0% discount wich is: ${destinationPrices.kukes.munich.toFixed(1)}$`)
 }
