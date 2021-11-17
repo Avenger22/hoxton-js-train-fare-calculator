@@ -2,17 +2,69 @@
 alert("Welcome to Train Fare !!!")
 console.log("This amazing program !")
 
-const userName = prompt("What is your Name : ")
+let userName = prompt("What is your Name : ")
 confirm("Would you like to confirm this : ")
 
-const userAge = Number(prompt("What is your age: "))
+let userAge = Number(prompt("What is your age: "))
 confirm("Would you confirm this : ")
 
-const userStartingPoint = prompt("What is your Starting Point too chose from \n TIRANA \n KUKES")
+if (Number.isNaN(userAge) || userAge < 1 ||userAge > 120) {
+    alert("Please enter again, the age cannot be more than 120, and less than 1, also please enter a number for it")
+    userAge = Number(prompt("What is your age: "))
+    confirm("Would you confirm this : ")
+
+    if(userAge < 1 || userAge > 120) {
+        alert("I have no words sir, cant you read the text ???")
+        userAge = Number(prompt("What is your age: "))
+        confirm("Would you confirm this : ")
+
+        if(userAge < 1 || userAge > 120) {
+            throw new Error("The user was trying to troll us with not understaning the rules")
+        }
+    }
+}
+
+let userStartingPoint = prompt("What is your Starting Point too chose from \n TIRANA \n KUKES")
 confirm("Would you confirm this : ")
 
-const userDestinationPoint = prompt("What is your Destination Point too choose from : \n MILANO \n TORINO \n MUNICH :")
+if (userStartingPoint === "tirana" || userStartingPoint === "Tirana" ||  userStartingPoint === "KUKES" || userStartingPoint === "Kukes") {
+
+    alert("Please enter the name in like TIRANA not lowercase or capitalize or random please try again.")
+    userStartingPoint = prompt("What is your Starting Point too chose from \n TIRANA \n KUKES")
+    confirm("Would you confirm this : ") 
+    
+    if (userStartingPoint === "tirana" || userStartingPoint === "Tirana" ||  userStartingPoint === "KUKES" || userStartingPoint === "Kukes") {
+        alert("Please enter the name in like TIRANA not lowercase or capitalize or random please try again.")
+        userStartingPoint = prompt("What is your Starting Point too chose from \n TIRANA \n KUKES")
+        confirm("Would you confirm this : ") 
+
+        if (userStartingPoint === "tirana" || userStartingPoint === "Tirana" ||  userStartingPoint === "KUKES" || userStartingPoint === "Kukes") {
+            throw new Error("The user was trying to troll us with not understaning the rules")
+        }
+    }
+    
+}
+
+let userDestinationPoint = prompt("What is your Destination Point too choose from : \n MILANO \n TORINO \n MUNICH :")
 confirm("Would you confirm this : ")
+
+if (userDestinationPoint === "Milano" || userDestinationPoint === "milano") {
+
+    alert("Please enter the name in like TIRANA not lowercase or capitalize or random please try again.")
+    userDestinationPoint = prompt("What is your Destination Point too chose from  \n MILANO \n TORINO \n MUNICH")
+    confirm("Would you confirm this : ")
+    
+    if (userDestinationPoint === "Milano" || userDestinationPoint === "milano") {
+        alert("Please enter the name in like TIRANA not lowercase or capitalize or random please try again.")
+        userDestinationPoint = prompt("What is your Destination Point too chose from  \n MILANO \n TORINO \n MUNICH")
+        confirm("Would you confirm this : ")  
+
+        if (userDestinationPoint === "Milano" || userDestinationPoint === "milano") {
+            throw new Error("The user was trying to troll us with not understaning the rules")
+        }
+    }
+            
+}
 
 alert("`The distances betwen destinations are as follow : \n TIRANA-MILANO 900KM \n TIRANA-TORINO 800KM \n TIRANA-MUNICH 5000KM :")
 alert("`The distances betwen destinations are as follow : \n KUKES-MILANO 800KM \n TIRANA-TORINO 600KM \n TIRANA-MUNICH 4000KM :")
